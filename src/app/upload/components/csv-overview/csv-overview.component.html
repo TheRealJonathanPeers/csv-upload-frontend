@@ -1,0 +1,45 @@
+<!--file upload-->
+<form [formGroup]="csvForm"
+      (ngSubmit)="onBotCreate()"
+      class="form-container">
+
+
+  <input [placeholder]="'upload your csv file here!'"
+         type="file"
+         formControlName="file"
+         class="upload"
+         accept=".csv"
+         (change)="changeListener($event)">
+
+
+  <button class="posBtn"
+          mat-raised-button
+          type="submit">
+    Upload file
+  </button>
+</form>
+
+
+<!--file overview-->
+
+<table mat-table
+       *ngFor="let csv of csvs"
+       [dataSource]="transformToDataSource(csv)"
+       class="mat-elevation-z8">
+
+  <!--columns-->
+  <div *ngFor="let c of columns(csv)">
+    <ng-container matColumnDef="{{c}}">
+      <th mat-header-cell *matHeaderCellDef>{{c}}</th>
+      <td mat-cell *matCellDef="let element">{{element[c]}}</td>
+    </ng-container>
+  </div>
+
+  <tr mat-header-row *matHeaderRowDef="columns(csv)"></tr>
+
+  <tr mat-row *matRowDef="let row; columns: columns(csv); let i = index"
+      [ngStyle]="{'backgroundColor': row['isMember']  ? '#77dd77' : ''}"></tr>
+</table>
+
+{{uploadStatus}}
+

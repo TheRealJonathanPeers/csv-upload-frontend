@@ -1,0 +1,25 @@
+$main-text-color: black;
+$accent-text-color: pink;
+
+$primary-font-size: "1.3rem";
+$primary-font-family: Istok Web, sans-serif;
+
+$title-font-size: "4rem";
+$title-font-family: Arimo;
+
+$paragraph-font-size: "14px";
+$paragraph-font-family: Rubik;
+
+// grid
+//$grid-colums: 4;
+//$grid-rows: repeat();
+$grid-areas: "top-left top-middle top-middle" "left middle middle" "bottom bottom bottom";
+
+// breakpoints
+$breakpoint-small: "(max-width: 500px)";
+$breakpoint-medium: "(max-width: 800px)";
+$breakpoint-large: "(max-width: 1000px)";
+$breakpoint-xl: "(max-width: 1200px)";
+
+
+
