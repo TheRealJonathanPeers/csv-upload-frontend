@@ -18,4 +18,8 @@ app-root {
   grid-template-rows: 10rem minmax(700px, 2fr) 80px;
   grid-template-areas: "top-left top-middle top-right" "left middle right" "bottom bottom bottom"; }
 
+@media (max-width: 400px) {
+  app-root {
+    grid-template-columns: 100px minmax(0, 10fr) 1fr; } }
+
 /*# sourceMappingURL=styles.css.map */

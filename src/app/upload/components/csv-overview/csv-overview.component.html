@@ -1,13 +1,18 @@
 <!--file upload-->
 <form [formGroup]="csvForm"
       (ngSubmit)="onFileUpload()"
-      class="form-container">
+      id="form-container">
 
-  <input type="file"
-         formControlName="file"
-         class="field"
-         accept=".csv"
-         (change)="fileSelectListener($event)">
+
+  <label for="file-upload" class="custom-file-upload">
+    <input type="file"
+           formControlName="file"
+           id="file-upload"
+           class="field"
+           accept=".csv"
+           (change)="fileSelectListener($event)">
+    Select file
+  </label>
 
 
   <button class="submitBtn"
@@ -25,9 +30,8 @@
 
 
 <!--file overview-->
-<section class="tableContainer mat-elevation-z8" *ngFor="let csv of csvs">
-  <mat-table #matTable
-             [dataSource]="transformToDataSource(csv).data"
+<section id="tableContainer" class="mat-elevation-z8" *ngFor="let csv of csvs">
+  <mat-table [dataSource]="transformToDataSource(csv).data"
              class="table">
 
     <!--columns-->

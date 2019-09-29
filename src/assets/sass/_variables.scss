@@ -16,7 +16,7 @@ $paragraph-font-family: Rubik;
 $grid-areas: "top-left top-middle top-right" "left middle right" "bottom bottom bottom";
 
 // breakpoints
-$breakpoint-small: "(max-width: 500px)";
+$breakpoint-small: "max-width: 400px";
 $breakpoint-medium: "(max-width: 800px)";
 $breakpoint-large: "(max-width: 1000px)";
 $breakpoint-xl: "(max-width: 1200px)";

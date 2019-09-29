@@ -25,3 +25,9 @@ app-root {
   grid-template-rows: 10rem minmax(700px, 2fr) 80px;
   grid-template-areas: $grid-areas;
 }
+
+@media ($breakpoint-small) {
+  app-root{
+    grid-template-columns: 100px minmax(0, 10fr) 1fr;
+  }
+}

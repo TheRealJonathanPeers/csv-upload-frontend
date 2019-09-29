@@ -1,18 +1,35 @@
 @import "../../../../assets/sass/mixins";
+@import "../../../../assets/sass/variables";
 
-.form-container {
+#form-container {
   display: flex;
-  flex-flow: wrap column;
-  justify-content: center;
+  flex-flow: wrap row;
+  justify-content: space-between;
   width: 100%;
 
-  .field {
+  .custom-file-upload {
+    border: 1px solid #ccc;
+    padding: 10px 0;
+    cursor: pointer;
+    font: 14px Roboto, "Helvetica Neue", sans-serif;
+    border-radius: 4px;
+    margin-right: 0.5rem;
     display: flex;
-    justify-self: center;
+    justify-content: center;
+    flex: auto;
+
+
+    .field {
+
+      &[type="file"] {
+        display: none;
+      }
+    }
   }
 
   .submitBtn {
-    @include twikitize()
+    @include twikitize();
+    flex: auto;
   }
 }
 
@@ -27,12 +44,13 @@
   }
 }
 
-.tableContainer {
+#tableContainer {
   width: 100%;
+  max-height: 500px;
   overflow-x: auto;
+  overflow-y: auto;
   display: block;
   margin-bottom: 1rem;
-
 
   .mat-table {
     width: 100%;
@@ -69,4 +87,18 @@
       color: white;
     }
   }
+}
+
+@media ($breakpoint-small) {
+  #form-container {
+    .custom-file-upload {
+      margin-right: 0;
+      margin-bottom: 0.5rem;
+    }
+
+    .submitBtn {
+      width: 12rem;
+    }
+  }
+
 }

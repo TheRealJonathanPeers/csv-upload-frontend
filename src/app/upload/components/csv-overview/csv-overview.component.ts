@@ -17,7 +17,7 @@ import {ToastService} from '../../../util/services/toast.service';
  */
 export class CsvOverviewComponent implements OnInit {
   csvForm: FormGroup;
-  uploadStatus = 'assistant standing by';
+  uploadStatus = 'assistant twikky standing by';
   $csvs: BehaviorSubject<any[]> = new BehaviorSubject([]);
   private currentCSV: { data: any[]; keys: any };
   private validFile: boolean;
@@ -44,6 +44,9 @@ export class CsvOverviewComponent implements OnInit {
 
     this.us.getAllFiles().subscribe((json: any[]) => {
       this.$csvs.next(json);
+      if (this.csvs.length < 1) {
+        this.uploadStatus = 'Uh oh! We\'re running low on csv files, start feeding me data!';
+      }
     });
 
     this.csvForm.valueChanges.subscribe(value => {
@@ -64,17 +67,11 @@ export class CsvOverviewComponent implements OnInit {
     const formData: FormData = new FormData();
     formData.append('file', file, file.name);
     const isCSV = this.us.isCSVFile(file);
+
     if (isCSV) {
-
-
-      this.csvForm.patchValue({
-        file: formData
-      }, {emitEvent: false});
-
-      this.uploadStatus = 'file is ready to upload';
       this.validFile = true;
-      this.ts.showToast(this.uploadStatus, 'OK');
-
+      this.uploadStatus = `file \'${file.name}\' selected, now click on \'Upload file\'`;
+      this.csvForm.patchValue({file: formData});
     } else {
       this.uploadStatus = 'select a .csv file';
       this.validFile = false;
@@ -97,7 +94,8 @@ export class CsvOverviewComponent implements OnInit {
         console.log(Object.keys(csv));
         console.log(jsonCsv);
         this.csvs.push(csv);
-        this.ts.showToast(`csv was succesfully uploaded!`, 'OK');
+        this.uploadStatus = 'Good job, keep feeding me data!';
+        this.ts.showToast(`file was succesfully uploaded!`, 'OK');
       });
 
     } else {
