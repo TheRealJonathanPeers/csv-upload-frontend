@@ -1,6 +1,20 @@
+<p align="center">
+  <img src="https://angular.io/assets/images/logos/angular/angular.png" width="120" alt="Nest Logo" />
+</p>
+
 # CsvUploadFrontend
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.0.3.
+
+## About
+Handles the sending of csv files and receiving of json data to and from the backend.
+
+
+## Installation
+After cloning this project dont forget to install the libraries declared in package.json. Use the following command.
+```bash
+$ npm install
+```
 
 ## Development server
 
@@ -8,7 +22,7 @@ Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app w
 
 ## Code scaffolding
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+Run `ng generate c&omponent component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
 
 ## Build
 

@@ -1,0 +1,82 @@
+#form-container {
+  display: flex;
+  flex-flow: wrap row;
+  justify-content: space-between;
+  width: 100%; }
+  #form-container .custom-file-upload {
+    border: 1px solid #ccc;
+    padding: 10px 0;
+    cursor: pointer;
+    font: 14px Roboto, "Helvetica Neue", sans-serif;
+    border-radius: 4px;
+    margin-right: 0.5rem;
+    display: flex;
+    justify-content: center;
+    flex: auto; }
+    #form-container .custom-file-upload .field[type="file"] {
+      display: none; }
+  #form-container .submitBtn {
+    background-color: #E74310;
+    color: white;
+    flex: auto; }
+
+#uploadStatus #assistantSays {
+  display: flex;
+  justify-content: center; }
+#uploadStatus .shakyAssistantSays {
+  animation: shake 0.9s cubic-bezier(0.5, 0.1, 0.3, 0.9) both;
+  transform: translate3d(0, 0, 0);
+  backface-visibility: hidden;
+  perspective: 1000px; }
+@keyframes shake {
+  10%, 90% {
+    transform: translate3d(-2px, 0, 0); }
+  20%, 80% {
+    transform: translate3d(4px, 0, 0); }
+  30%, 50%, 70% {
+    transform: translate3d(-7px, 0, 0); }
+  40%, 60% {
+    transform: translate3d(7px, 0, 0); } }
+#uploadStatus mat-divider {
+  margin: 1rem 0; }
+
+#tableContainer {
+  width: 100%;
+  max-height: 500px;
+  overflow-x: auto;
+  overflow-y: auto;
+  display: block;
+  margin-bottom: 1rem; }
+  #tableContainer .mat-table {
+    width: 100%;
+    display: table;
+    border-collapse: collapse;
+    margin: 0; }
+  #tableContainer .mat-row,
+  #tableContainer .mat-header-row {
+    display: table-row; }
+  #tableContainer .mat-row:hover {
+    background-color: #E74310;
+    color: white; }
+    #tableContainer .mat-row:hover .mat-cell {
+      color: white; }
+  #tableContainer .mat-cell,
+  #tableContainer .mat-header-cell {
+    word-wrap: initial;
+    display: table-cell;
+    line-break: unset;
+    white-space: nowrap;
+    overflow: hidden;
+    vertical-align: middle; }
+    #tableContainer .mat-cell.mat-row:hover .mat-cell,
+    #tableContainer .mat-header-cell.mat-row:hover .mat-cell {
+      color: white; }
+
+@media (max-width: 400px) {
+  #form-container .custom-file-upload {
+    margin-right: 0;
+    margin-bottom: 0.5rem; }
+  #form-container .submitBtn {
+    width: 12rem; } }
+
+/*# sourceMappingURL=csv-overview.component.css.map */

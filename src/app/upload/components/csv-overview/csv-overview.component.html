@@ -1,0 +1,48 @@
+<!--file upload-->
+<form [formGroup]="csvForm"
+      (ngSubmit)="onFileUpload()"
+      id="form-container">
+
+
+  <label for="file-upload" class="custom-file-upload">
+    <input type="file"
+           formControlName="file"
+           id="file-upload"
+           class="field"
+           accept=".csv"
+           (change)="fileSelectListener($event)">
+    Select file
+  </label>
+
+
+  <button class="submitBtn"
+          mat-raised-button
+          type="submit">
+    Upload file
+  </button>
+</form>
+
+<!--uploading assistant-->
+<section id="uploadStatus">
+  <mat-divider></mat-divider>
+  <p [ngClass]="{'shakyAssistantSays': !validFile}" id="assistantSays"> {{uploadStatus}}</p>
+  <mat-divider></mat-divider>
+</section>
+
+
+<!--file overview-->
+<section id="tableContainer" class="mat-elevation-z8" *ngFor="let csv of csvs">
+  <mat-table [dataSource]="transformToDataSource(csv).data"
+             class="table">
+
+    <!--columns-->
+    <ng-container *ngFor="let c of currentCSV.keys" matColumnDef="{{c}}">
+      <mat-header-cell *matHeaderCellDef>{{c}}</mat-header-cell>
+      <mat-cell *matCellDef="let element">{{element[c]}}</mat-cell>
+    </ng-container>
+
+    <mat-header-row class="header-row" *matHeaderRowDef="currentCSV.keys; sticky: true"></mat-header-row>
+    <mat-row class="row" *matRowDef="let row; columns: currentCSV.keys;"></mat-row>
+  </mat-table>
+
+</section>
