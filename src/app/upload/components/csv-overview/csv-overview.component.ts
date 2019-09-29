@@ -99,7 +99,7 @@ export class CsvOverviewComponent implements OnInit {
       });
 
     } else {
-      this.uploadStatus = 'please upload a valid file';
+      this.uploadStatus = 'please select a valid file';
     }
   }
 
