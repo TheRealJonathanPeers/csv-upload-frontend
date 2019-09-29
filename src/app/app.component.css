@@ -1,3 +1,23 @@
+#logo {
+  grid-area: top-left;
+  display: flex;
+  justify-content: center;
+  align-items: center; }
+  #logo img {
+    display: flex;
+    justify-self: center;
+    width: 100%;
+    height: 7rem;
+    margin: 0 10rem; }
 
+#mainTitle {
+  grid-area: top-middle;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font: 2rem Muli; }
+
+#routerContainer {
+  grid-area: middle; }
 
 /*# sourceMappingURL=app.component.css.map */

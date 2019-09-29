@@ -1,3 +1,28 @@
-mat-table{
+@import "../assets/sass/variables";
 
+#logo {
+  grid-area: top-left;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  img {
+    display: flex;
+    justify-self: center;
+    width: 100%;
+    height: 7rem;
+    margin: 0 10rem;
+  }
+}
+
+#mainTitle {
+  grid-area: top-middle;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font: #{$title-font-size} #{$title-font-family};
+}
+
+#routerContainer {
+  grid-area: middle;
 }

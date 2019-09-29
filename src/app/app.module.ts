@@ -1,12 +1,23 @@
-import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import {BrowserModule} from '@angular/platform-browser';
+import {NgModule} from '@angular/core';
 
-import { AppRoutingModule } from './app-routing.module';
-import { AppComponent } from './app.component';
-import { CsvOverviewComponent } from './upload/components/csv-overview/csv-overview.component';
-import {MatButtonModule, MatFormFieldModule, MatInputModule, MatTableModule} from '@angular/material';
+import {AppRoutingModule} from './app-routing.module';
+import {AppComponent} from './app.component';
+import {CsvOverviewComponent} from './upload/components/csv-overview/csv-overview.component';
+import {
+  MatButtonModule,
+  MatDividerModule,
+  MatFormFieldModule,
+  MatInputModule,
+  MatSnackBar,
+  MatSnackBarContainer, MatSnackBarModule,
+  MatTableModule
+} from '@angular/material';
 import {HttpClientModule} from '@angular/common/http';
 import {ReactiveFormsModule} from '@angular/forms';
+import {RouterModule} from '@angular/router';
+import {OverlayModule} from '@angular/cdk/overlay';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -14,16 +25,23 @@ import {ReactiveFormsModule} from '@angular/forms';
     CsvOverviewComponent
   ],
   imports: [
+    BrowserAnimationsModule,
     BrowserModule,
+    RouterModule,
     AppRoutingModule,
     MatFormFieldModule,
     HttpClientModule,
     ReactiveFormsModule,
     MatInputModule,
     MatButtonModule,
-    MatTableModule
+    MatTableModule,
+    OverlayModule,
+    MatDividerModule,
+    MatSnackBarModule
   ],
-  providers: [],
-  bootstrap: [AppComponent]
+  providers: [MatSnackBar],
+  bootstrap: [AppComponent],
+  // entryComponents: [MatSnackBarContainer]
 })
-export class AppModule { }
+export class AppModule {
+}

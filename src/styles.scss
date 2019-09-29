@@ -1,12 +1,9 @@
 /* You can add global styles to this file, and also import other style files */
 @import "assets/sass/variables";
+@import "assets/sass/mixins";
 
 @import "~@angular/material/prebuilt-themes/indigo-pink.css";
-
-@import url('https://fonts.googleapis.com/css?family=Istok+Web&display=swap');
-@import url('https://fonts.googleapis.com/css?family=Arimo|Kanit|Rubik&display=swap');
-@import '~@angular/material/theming';
-@include mat-core();
+@import url('https://fonts.googleapis.com/css?family=Muli&display=swap');
 
 
 html, body {
@@ -24,7 +21,7 @@ body {
 
 app-root {
   display: grid;
-  grid-template-columns: 7rem minmax(0, 10fr) 1fr;
+  grid-template-columns: 150px minmax(0, 10fr) 1fr;
   grid-template-rows: 10rem minmax(700px, 2fr) 80px;
   grid-template-areas: $grid-areas;
 }

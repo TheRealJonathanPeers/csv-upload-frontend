@@ -4,8 +4,8 @@ $accent-text-color: pink;
 $primary-font-size: "1.3rem";
 $primary-font-family: Istok Web, sans-serif;
 
-$title-font-size: "4rem";
-$title-font-family: Arimo;
+$title-font-size: "2rem";
+$title-font-family: Muli;
 
 $paragraph-font-size: "14px";
 $paragraph-font-family: Rubik;
@@ -13,7 +13,7 @@ $paragraph-font-family: Rubik;
 // grid
 //$grid-colums: 4;
 //$grid-rows: repeat();
-$grid-areas: "top-left top-middle top-middle" "left middle middle" "bottom bottom bottom";
+$grid-areas: "top-left top-middle top-right" "left middle right" "bottom bottom bottom";
 
 // breakpoints
 $breakpoint-small: "(max-width: 500px)";

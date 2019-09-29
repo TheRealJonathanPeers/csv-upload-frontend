@@ -1,45 +1,43 @@
 <!--file upload-->
 <form [formGroup]="csvForm"
-      (ngSubmit)="onBotCreate()"
+      (ngSubmit)="onFileUpload()"
       class="form-container">
 
-
-  <input [placeholder]="'upload your csv file here!'"
-         type="file"
+  <input type="file"
          formControlName="file"
-         class="upload"
+         class="field"
          accept=".csv"
-         (change)="changeListener($event)">
+         (change)="fileSelectListener($event)">
 
 
-  <button class="posBtn"
+  <button class="submitBtn"
           mat-raised-button
           type="submit">
     Upload file
   </button>
 </form>
 
+<section id="uploadStatus">
+  <mat-divider></mat-divider>
+  <p> {{uploadStatus}}</p>
+  <mat-divider></mat-divider>
+</section>
+
 
 <!--file overview-->
+<section class="tableContainer mat-elevation-z8" *ngFor="let csv of csvs">
+  <mat-table #matTable
+             [dataSource]="transformToDataSource(csv).data"
+             class="table">
 
-<table mat-table
-       *ngFor="let csv of csvs"
-       [dataSource]="transformToDataSource(csv)"
-       class="mat-elevation-z8">
-
-  <!--columns-->
-  <div *ngFor="let c of columns(csv)">
-    <ng-container matColumnDef="{{c}}">
-      <th mat-header-cell *matHeaderCellDef>{{c}}</th>
-      <td mat-cell *matCellDef="let element">{{element[c]}}</td>
+    <!--columns-->
+    <ng-container *ngFor="let c of currentCSV.keys" matColumnDef="{{c}}">
+      <mat-header-cell *matHeaderCellDef>{{c}}</mat-header-cell>
+      <mat-cell *matCellDef="let element">{{element[c]}}</mat-cell>
     </ng-container>
-  </div>
 
-  <tr mat-header-row *matHeaderRowDef="columns(csv)"></tr>
+    <mat-header-row class="header-row" *matHeaderRowDef="currentCSV.keys; sticky: true"></mat-header-row>
+    <mat-row class="row" *matRowDef="let row; columns: currentCSV.keys;"></mat-row>
+  </mat-table>
 
-  <tr mat-row *matRowDef="let row; columns: columns(csv); let i = index"
-      [ngStyle]="{'backgroundColor': row['isMember']  ? '#77dd77' : ''}"></tr>
-</table>
-
-{{uploadStatus}}
-
+</section>
