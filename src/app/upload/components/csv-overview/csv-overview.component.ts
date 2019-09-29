@@ -11,7 +11,7 @@ import {ToastService} from '../../../util/services/toast.service';
 })
 
 /**
- * @class CsvOverviewComponent handles the logic for this component
+ * @class CsvOverviewComponent handles the logic (file upload and display) for this component
  *
  * @author Jonathan Peers
  */
@@ -19,8 +19,8 @@ export class CsvOverviewComponent implements OnInit {
   csvForm: FormGroup;
   uploadStatus = 'assistant twikky standing by';
   $csvs: BehaviorSubject<any[]> = new BehaviorSubject([]);
-  private currentCSV: { data: any[]; keys: any };
-  private validFile: boolean;
+  currentCSV: { data: any[]; keys: any };
+  validFile = true;
 
   constructor(
     private us: UploadService,
@@ -48,10 +48,6 @@ export class CsvOverviewComponent implements OnInit {
         this.uploadStatus = 'Uh oh! We\'re running low on csv files, start feeding me data!';
       }
     });
-
-    this.csvForm.valueChanges.subscribe(value => {
-      this.uploadStatus = JSON.stringify(value);
-    });
   }
 
   /**
@@ -73,8 +69,8 @@ export class CsvOverviewComponent implements OnInit {
       this.uploadStatus = `file \'${file.name}\' selected, now click on \'Upload file\'`;
       this.csvForm.patchValue({file: formData});
     } else {
-      this.uploadStatus = 'select a .csv file';
       this.validFile = false;
+      this.uploadStatus = '*buzzer sound* select a .csv file!';
     }
   }
 
@@ -100,6 +96,7 @@ export class CsvOverviewComponent implements OnInit {
 
     } else {
       this.uploadStatus = 'please select a valid file';
+      this.validFile = false;
     }
   }
 

@@ -22,9 +22,10 @@
   </button>
 </form>
 
+<!--uploading assistant-->
 <section id="uploadStatus">
   <mat-divider></mat-divider>
-  <p> {{uploadStatus}}</p>
+  <p [ngClass]="{'shakyAssistantSays': !validFile}" id="assistantSays"> {{uploadStatus}}</p>
   <mat-divider></mat-divider>
 </section>
 

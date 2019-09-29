@@ -41,7 +41,6 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
   ],
   providers: [MatSnackBar],
   bootstrap: [AppComponent],
-  // entryComponents: [MatSnackBarContainer]
 })
 export class AppModule {
 }
